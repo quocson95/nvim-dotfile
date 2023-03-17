@@ -60,4 +60,22 @@ packer.startup(function(use)
       'nvim-tree/nvim-web-devicons', -- optional
     },
   }
+  use {
+    'crusj/structrue-go.nvim',
+    branch = "main"
+  }
+  use {
+    'crusj/hierarchy-tree-go.nvim',
+    requires = 'neovim/nvim-lspconfig'
+  }
+  use {
+    'yanskun/gotests.nvim'
+  }
+  use {
+    "olexsmir/gopher.nvim",
+    requires = { -- dependencies
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+  }
 end)

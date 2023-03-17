@@ -126,18 +126,24 @@ nvim_lsp.astro.setup {
   capabilities = capabilities
 }
 
+-- GoLang
 nvim_lsp.gopls.setup {
-  cmd = { "gopls", "serve" },
-  filetypes = { "go", "gomod" },
-  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  cmd = { 'gopls' },
+  on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     gopls = {
+      experimentalPostfixCompletions = true,
       analyses = {
         unusedparams = true,
+        shadow = true,
       },
       staticcheck = true,
     },
   },
+  init_options = {
+    usePlaceholders = true,
+  }
 }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

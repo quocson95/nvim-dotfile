@@ -29,10 +29,17 @@ vim.keymap.set('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 vim.keymap.set('n', 'gp', '<Cmd>Lspsaga peek_definition<CR>', opts)
 vim.keymap.set('n', 'gr', '<Cmd>Lspsaga rename<CR>', opts)
 vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
+vim.keymap.set("n", "gs", "<cmd>Lspsaga <CR>")
+-- Go to type definition
+vim.keymap.set("n", "gt", "<cmd>Lspsaga goto_type_definition<CR>")
+vim.keymap.set("n", "<leader>gt", "<cmd>Lspsaga peek_type_definition<CR>")
 
 -- Call hierarchy
 vim.keymap.set("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
 vim.keymap.set("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
+
+-- Floating terminal
+vim.keymap.set("n", "<Leader>ct", "<cmd>Lspsaga term_toggle<CR>")
 
 -- code action
 local codeaction = require("lspsaga.codeaction")
