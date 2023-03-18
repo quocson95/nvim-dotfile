@@ -23,12 +23,22 @@ packer.startup(function(use)
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
 
-  use 'glepnir/lspsaga.nvim' -- LSP UIs
+
   use 'L3MON4D3/LuaSnip'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
+  -- use 'glepnir/lspsaga.nvim' -- LSP UIs
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    requires = {
+      { "nvim-tree/nvim-web-devicons" },
+      --Please make sure you install markdown and markdown_inline parser
+      { "nvim-treesitter/nvim-treesitter" }
+    }
+  })
   use 'kyazdani42/nvim-web-devicons' -- File icons
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
@@ -77,5 +87,9 @@ packer.startup(function(use)
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
+  }
+  use {
+    'junegunn/fzf.vim',
+    requires = { 'junegunn/fzf', run = ':call fzf#install()' }
   }
 end)
