@@ -92,4 +92,5 @@ packer.startup(function(use)
     'junegunn/fzf.vim',
     requires = { 'junegunn/fzf', run = ':call fzf#install()' }
   }
+  use 'andweeb/presence.nvim'
 end)
